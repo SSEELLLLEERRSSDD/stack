@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication42
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Stack<string> numbers = new Stack<string>();
+            numbers.Push("one");
+            numbers.Push("two");
+            numbers.Push("three");
+            numbers.Push("four");
+            numbers.Push("five");
+            Console.WriteLine("Выберите действие");
+            Console.WriteLine("0.Выход");
+            Console.WriteLine("1.Очистить стэк");
+            Console.WriteLine("2.Вывести на экран стэк numbers");
+            Console.WriteLine("3.Поиск элемента");
+            Console.WriteLine("4.Добавление одного элемента");
+            Console.WriteLine("5.Удалить и вывести первый объект");
+            Console.WriteLine("6.Вывести первый объект");
+            Console.WriteLine("7.Скопировать стэк в массив");
+            int n = Convert.ToInt32(Console.ReadLine());
+            while (n != 0)
+            {
+                
+                switch (n)
+                {
+                    case 1:
+                        numbers.Clear();
+                        break;
+                    case 2:
+                        foreach (string number in numbers)
+                        {
+                            Console.WriteLine(number);
+                        }
+                        if (numbers.Count() == 0)
+                        {
+                            Console.WriteLine("стэк пуст");
+                        }
+                        break;
+                    case 3:
+                        Console.WriteLine("Какой элемент вы хотите найти?(string)");
+                        string k = (Console.ReadLine());
+                        if(numbers.Contains(k)){
+                            Console.WriteLine("элемент " + k + " есть в стэке");
+                        }
+                        break;
+                    case 4:
+                        Console.WriteLine("Какой элемент вы хотите добавить?(string)");
+                        string m = (Console.ReadLine());
+                        numbers.Push(m);
+                        break;
+                    case 5:
+                        numbers.Pop();
+                        break;
+                    case 6:
+                        numbers.Peek();
+                        break;
+                    case 7:
+                        object[] l = numbers.ToArray();
+                        break;
+                }
+                Console.WriteLine("Выберите действие");
+                Console.WriteLine("0.Выход");
+                Console.WriteLine("1.Очистить стэк");
+                Console.WriteLine("2.Вывести на экран стэк numbers");
+                Console.WriteLine("3.Поиск элемента");
+                Console.WriteLine("4.Добавление одного элемента");
+                Console.WriteLine("5.Удалить и вывести первый объект");
+                Console.WriteLine("6.Вывести первый объект");
+                Console.WriteLine("7.Скопировать стэк в массив");
+                n = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+    }
+}
